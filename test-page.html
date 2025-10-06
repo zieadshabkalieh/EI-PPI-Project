@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .feature {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 4px solid #4CAF50;
+      border-radius: 4px;
+    }
+    .timestamp {
+      font-size: 12px;
+      color: #666;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>Environmental, Practicality, and Performance Index (EPPI)(EI & PPI) - Test Page</h1>
+    <p>This is a test page to verify server functionality and content updates.</p>
+    
+    <div class="feature">
+      <h3>✓ Two Main Tabs</h3>
+      <p>The application has been updated with two main tabs:</p>
+      <ul>
+        <li>Environmental Index (EI) - For environmental impact calculations</li>
+        <li>Performance Practicality Index (PPI) - For measuring real-world application feasibility</li>
+      </ul>
+    </div>
+    
+    <div class="feature">
+      <h3>✓ Miniaturized Instrument Option</h3>
+      <p>Added to the Instrumentation form with a +10 score modifier</p>
+    </div>
+    
+    <div class="feature">
+      <h3>✓ 9-Criteria Performance Practicality Index (PPI)</h3>
+      <p>Implemented the complete 9-point scoring system:</p>
+      <ol>
+        <li>Nature of Method (10 pts)</li>
+        <li>Design of Experiment (10 pts)</li>
+        <li>Validation (25 pts)</li>
+        <li>Sensitivity (10 pts)</li>
+        <li>Reagent Costs (8 pts)</li>
+        <li>Instrument Costs (8 pts)</li>
+        <li>Maintenance (10 pts)</li>
+        <li>Analysis Time (9 pts)</li>
+        <li>Sample Reusability (10 pts)</li>
+      </ol>
+    </div>
+    
+    <div class="feature">
+      <h3>✓ Color-Coded Interpretation Tables</h3>
+      <p>Added interpretation tables for both Indexes:</p>
+      <ul>
+        <li>Environmental Index (EI): Dark Green (75-100), Light Green (50-75), Yellow (25-50), Red (&lt;25)</li>
+        <li>PI Index: Dark Blue (75-100), Light Blue (50-74), Magenta (&lt;50)</li>
+      </ul>
+    </div>
+    
+    <div class="feature">
+      <h3>✓ Optimized Results Tab</h3>
+      <p>Fixed Results tab rendering with the following improvements:</p>
+      <ul>
+        <li>Removed animations that could cause freezing</li>
+        <li>Added fallback rendering for complex visualizations</li>
+        <li>Fixed transition delays between tabs</li>
+        <li>Added error handling for components</li>
+        <li>Simplified Chart.js rendering</li>
+      </ul>
+    </div>
+    
+    <p class="timestamp">Generated at: <span id="timestamp"></span></p>
+  </div>
+  
+  <script>
+    document.getElementById('timestamp').textContent = new Date().toISOString();
+  </script>
+</body>
+</html>

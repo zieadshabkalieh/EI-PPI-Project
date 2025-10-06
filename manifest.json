@@ -1,0 +1,17 @@
+{
+  "name": "Environmental, Practicality, and Performance Index (EPPI)(EI & PPI)",
+  "short_name": "Environmental, Practicality, and Performance Index (EPPI)(EI & PPI)",
+  "description": "Environmental, Practicality, and Performance Index (EPPI)(EI & PPI) for analytical chemistry methods",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "../../assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "offline_enabled": true
+}

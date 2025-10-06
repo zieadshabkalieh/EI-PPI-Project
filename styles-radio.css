@@ -1,0 +1,303 @@
+/* Custom radio and checkbox styling */
+.custom-radio-container,
+.custom-checkbox-container {
+  display: block;
+  position: relative;
+  padding: 16px 20px 16px 50px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border: 2px solid #f1f1f1;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.custom-radio-container:hover,
+.custom-checkbox-container:hover {
+  background-color: #f9f9f9;
+  border-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Sample preparation options styling */
+.sample-prep-option .custom-radio-container {
+  border-left: 4px solid var(--sample-prep-color);
+  background-color: #fcfefe;
+}
+
+.sample-prep-option .custom-radio-container:hover {
+  background-color: #f0f7fa;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.1);
+}
+
+.sample-prep-option .custom-radio-input:checked ~ .radio-checkmark {
+  background-color: var(--sample-prep-color);
+  border-color: var(--sample-prep-color);
+}
+
+.custom-radio-input:checked + .radio-checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Sample-prep specific styling */
+.sample-prep-option {
+  background-color: #fcfefe;
+  border-left: 4px solid var(--sample-prep-color);
+}
+
+.sample-prep-option:hover {
+  background-color: #f0f7fa;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.1);
+}
+
+.sample-prep-option .custom-radio-input:checked + .radio-checkmark {
+  background-color: var(--sample-prep-color);
+  border-color: var(--sample-prep-color);
+}
+
+.sample-prep-option.selected {
+  background-color: #f0f7fa;
+  border-color: var(--sample-prep-color);
+  box-shadow: 0 3px 8px rgba(40, 167, 69, 0.15);
+}
+
+/* Reagent options styling */
+.reagent-option {
+  background-color: #fdfcfc;
+  border-left: 4px solid var(--reagent-color);
+}
+
+.reagent-option:hover {
+  background-color: #fcf2f2;
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.1);
+}
+
+.reagent-option .custom-radio-input:checked + .radio-checkmark {
+  background-color: var(--reagent-color);
+  border-color: var(--reagent-color);
+}
+
+.reagent-option.selected {
+  background-color: #fcf2f2;
+  border-color: var(--reagent-color);
+  box-shadow: 0 3px 8px rgba(220, 53, 69, 0.15);
+}
+
+/* Instrumentation options styling */
+.instrumentation-option {
+  background-color: #fbfaf5;
+  border-left: 4px solid var(--instrumentation-color);
+}
+
+.instrumentation-option:hover {
+  background-color: #f7f5e9;
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.1);
+}
+
+.instrumentation-option .custom-radio-input:checked + .radio-checkmark {
+  background-color: var(--instrumentation-color);
+  border-color: var(--instrumentation-color);
+}
+
+.instrumentation-option.selected {
+  background-color: #f7f5e9;
+  border-color: var(--instrumentation-color);
+  box-shadow: 0 3px 8px rgba(255, 193, 7, 0.15);
+}
+
+/* Waste options styling */
+.waste-option {
+  background-color: #f9fcfa;
+  border-left: 4px solid var(--waste-color);
+}
+
+.waste-option:hover {
+  background-color: #f0f7f2;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+.waste-option .custom-radio-input:checked + .radio-checkmark {
+  background-color: var(--waste-color);
+  border-color: var(--waste-color);
+}
+
+.waste-option.selected {
+  background-color: #f0f7f2;
+  border-color: var(--waste-color);
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.15);
+}
+
+/* Hide the default radio button and checkbox */
+.custom-radio-input,
+.custom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.radio-checkmark {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* When the radio/checkbox is checked */
+.custom-radio-input:checked ~ .radio-checkmark,
+.custom-checkbox-input:checked ~ .checkbox-checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  animation: pulse-checkmark 0.3s ease-in-out;
+}
+
+/* Sample preparation radio styling when checked */
+.sample-prep-option .custom-radio-input:checked ~ .radio-checkmark {
+  background-color: var(--sample-prep-color);
+  border-color: var(--sample-prep-color);
+}
+
+/* Reagent radio styling when checked */
+.reagent-option .custom-radio-input:checked ~ .radio-checkmark {
+  background-color: var(--reagent-color);
+  border-color: var(--reagent-color);
+}
+
+/* Instrumentation radio styling when checked */
+.instrumentation-option .custom-radio-input:checked ~ .radio-checkmark {
+  background-color: var(--instrumentation-color);
+  border-color: var(--instrumentation-color);
+}
+
+/* Waste radio styling when checked */
+.waste-option .custom-radio-input:checked ~ .radio-checkmark {
+  background-color: var(--waste-color);
+  border-color: var(--waste-color);
+}
+
+/* Creating a dot in the center of the radio button when checked */
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Creating a checkmark in the checkbox when checked */
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Show the indicator (dot/checkmark) when checked */
+.custom-radio-input:checked ~ .radio-checkmark:after,
+.custom-checkbox-input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+/* Styling the container when the radio/checkbox is checked */
+.custom-radio-input:checked ~ .custom-radio-container,
+.custom-checkbox-input:checked ~ .custom-checkbox-container {
+  background-color: #f9fcff;
+  border-color: var(--primary-color);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Option score value display */
+.option-score {
+  display: inline-block;
+  font-weight: bold;
+  padding: 3px 8px;
+  margin-left: 8px;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #555;
+  font-size: 16px;
+}
+
+@keyframes pulse-checkmark {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-radio-container,
+  .custom-checkbox-container {
+    padding: 14px 16px 14px 45px;
+    font-size: 16px;
+  }
+  
+  .radio-checkmark,
+  .checkbox-checkmark {
+    height: 20px;
+    width: 20px;
+    left: 12px;
+  }
+  
+  .radio-checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 6px;
+    height: 6px;
+  }
+  
+  .checkbox-checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+  }
+  
+  .option-score {
+    padding: 2px 5px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,164 @@
+	The structure of EI scale
+The EI scale comprises four distinct scores: sample preparation, reagent, instrumentation, and waste. 
+	The Sample Preparation Score
+ 	The Sample Preparation Score is a critical component of the Environmental Impact (EI) scale, designed to assess the environmental friendliness and efficiency of analytical methods. It is calculated by evaluating four main criteria: pre-synthesis, instrument requirements, type of sample and sample efficiency, and extraction procedure. Each criterion contributes to the overall score and reflects different aspects of sample preparation sustainability.
+The pre-synthesis criterion assesses whether any chemical synthesis is required prior to analysis. A score of 100 is given if no pre-synthesis is needed, while 75 is assigned when synthesis is required. Modifiers are applied based on yield (high yield >90% receives an additional points of +10, moderate yield of 50-90%  +5, and low yield< 50% -5), temperature conditions (heating for more than hour or cooling to less than 0 0C results in deductions up to -10, the need for purification, high energy consumption instrument  (if >1.5 kWh per sample, -5), use of non-green solvents, and presence of occupational hazards.
+The instrument requirement evaluates the extent of sample preparation needed for analysis. Methods requiring no preparation, such as ATR technique, score 100 [31] . This technique eliminate reagent use and waste generation, fully aligning with the principles of GSP and GAC. Minimal preparation, such as dilution in UV spectroscopy, scores 95, while moderate preparation, such as filtration or sonication in HPLC, scores 85.
+The type of sample and sample efficiency criterion considers how complex the sample preparation is and the throughput of the method. A score of 100 is given for simple procedures required for samples such as pharmaceutical dosage form, while extensive preparation, required for biological,  food, and other complex matrices, scores 75. Additional deductions are made for derivatization or digestion and low sample throughput (<30 samples/day, -5). Additional points are given for high throughput (≥60 samples/day, +5).  Automation is strongly encouraged with automated sample preparation earning an additional 5 points [32]. Automation increases sample throughput, reduces solvent and reagent consumption, and minimizes waste, in line with GSP Principles 4, 5, 6, and 8 and GAC Principle 5. Additionally, it enhances operator safety by reducing manual handling of hazardous substances, addressing GSP Principle 10 and GAC Principle 12. In situ sample preparation receives 5 extra points, as it enhances method portability, minimizes sample transport, and reduces waste, aligning with GSP Principles 1, 4, 5, 6, and 8. In contrast, deductions are made for offline processing.
+Finally, the extraction procedure assesses whether extraction is needed and the nature and volume of solvents used. A method requiring no extraction scores 100, while methods requiring extraction receive 60. The type of solvent affects the score: complete green solvents such as supercritical fluids[33], deep eutectic solvents, ionic liquids [34–36], bio-based solvents, surfactants[37] The use of these solvents aligns with GSP Principle 2 and GAC Principles 2 and 10, which emphasize the reduction of hazardous chemicals. However, if only partial green solvents are used, 5 points are subtracted, and the use of non-greener solvents results in a deduction of 10 points. Solvent volume also affects the score. When the volume ranges from 1 to 10 mL, 5 points are added; volumes between 10 and 100 mL result in a deduction of 5 points; and using more than 100 mL leads to a deduction of 10 points. The use of renewable or reusable adsorbents adds an additional +5.
+The final Sample Preparation Score is calculated by averaging the scores of these four criteria using the formula:
+Total sample preparation score=( Pre-synthesis score+ Instrument preparation+ Type of sample and sample efficiency +  Extraction procedure)/4
+Table 2: Criteria of Sample Preparation Score
+Criteria	Score
+	Pre-synthesis	
+No pre-synthesis required	100
+Pre-synthesis required 	75
+Yield 	
+High yield >90%	10
+Moderate yield 50-90	5
+Low yield <50	-5
+Temperature	
+High temp. for more than 1 hr or cooling less than 0 0C	-10
+Room temperature more than 1 hr or heating less than 1 hr or cooling to or cooling less than 0 0C	-5
+Purification needed 	-5
+High energy consumption equipment >1.5 kW per sample	-5
+Use of non green solvent	-5
+Presence of occupational hazard	-5
+	
+	Instrument requirements	
+No sample preparation required ATR technique or direct analysis	100
+Minimal sample preparation uv/vis fluorimetry and TLC 	95
+Moderate sample preparation HPLC (Filtration or sonication) 	85
+	
+	
+	Type of sample and sample efficiency	
+Simple procedure for Pharmaceutical  dosage form	100
+Extensive sample preparation and pretreatments for biological samples or food matrices 	75
+Involves derivatization or digestion	-5
+High sample throughput (≥60 samples/day)	5
+Moderate sample throughput (30–59 samples/day)	0
+Low sample throughput (<30 samples/day)	-5
+Automated sample preparation	5
+In situ sample preparation	5
+Off line	-5
+	
+4-Extraction procedure 	
+No extraction needed	100
+Extraction needed	60
+Solvent Type	
+Complete green solvents (e.g., water, supercritical fluids, deep eutectic solvents, liquefied gases, ionic liquids, bio-based solvents, surfactants, micellar solvents)	5
+Partial green solvents	-5
+Non-greener (conventional organic) solvents	-10
+Solvent Volume	
+Less than 1 mL	10
+1 to 10 mL	5
+10 to 100 mL	-5
+More than 100 mL	-10
+Nature of adsorbent 	
+Use of renewable/reusable absorbents	5
+ 
+2.2. The Instrumentation Score
+
+The Instrumentation Score, as part of the EI Scale, serves as a holistic indicator of the environmental sustainability of analytical techniques. It incorporates various parameters, such as energy consumption, instrument automation, operational lifespan, maintenance requirements, vapor emissions, and overall analytical efficiency. Together, these factors reflect the extent to which an analytical technique aligns with the principles of GAC and contributes to sustainable laboratory practices. Non-instrumental analytical methods, including paper-based assays and smartphone-assisted platforms, represent the highest level of environmental sustainability. These techniques do not require energy-consuming instruments or chemical reagents, significantly reducing their ecological footprint. Consequently, they receive the maximum Instrumentation Score of 100, aligning with GAC Principle 5, which encourages automation, miniaturization, and minimal resource consumption.
+For instrument-based methods, energy consumption plays a central role in determining sustainability. Analytical techniques that consume less than or equal to 0.1 kWh per sample are considered highly energy-efficient and are assigned a score of 95. Those that use up to 1.5 kWh per sample are viewed as moderately energy-efficient and awarded a score of 85. Techniques requiring more than 1.5 kWh per sample receive a score of 75, reflecting the need to limit energy-intensive procedures following GAC Principle 9, which emphasizes the development of energy-efficient analytical tools. Beyond energy use, the Instrumentation Score accounts for other key environmental performance indicators. One such factor is instrument lifetime. Instruments with durable, long-lasting components that allow for easy maintenance or repair receive a favourable evaluation as they minimize the frequency of replacement and reduce cumulative waste. In contrast, systems with short operational lifespans or high replacement rates are penalized due to their higher environmental burden over time.
+Another critical parameter is maintenance intensity (Table S1). Instruments that require regular, complex maintenance contribute to increased resource use, including replacement parts, technician time, and auxiliary materials. These systems receive a lower score due to their reduced sustainability. Conversely, low-maintenance instruments that require minimal intervention are rated more positively, supporting operational efficiency and sustainability goals. Analytical methods that release solvent vapors during sample processing or analysis pose risks to both laboratory safety and environmental air quality. Therefore, such techniques are penalized by 20 points, supporting GAC Principle 12, which prioritizes operator safety and environmental protection.
+Automation is another determinant of sustainability. Fully automated systems are rated favorably, enhancing analytical precision, minimizing resource waste, and reducing human error. Manual or non-automated procedures, on the other hand, incur a 5-point deduction due to greater reliance on operator intervention, lower reproducibility, and increased consumption of time and materials. This aligns with GAC Principle 5, which supports the adoption of automated, miniaturized systems for greener analysis. The Instrumentation Score also considers the scope of analysis, differentiating between multi-analyte and single-analyte methods. Techniques capable of detecting multiple analytes in a single run improve overall efficiency and throughput while also reducing energy and solvent consumption [41–43]. In contrast, single-analyte techniques are penalized by 5 points because they often require multiple runs to complete comprehensive analyses, increasing their environmental impact. This consideration is consistent with GAC Principle 8, which promotes analytical efficiency and the reduction of unnecessary repetition.
+While high-energy techniques such as LC-MS are often penalized for baseline energy use, their miniaturized variants such as micro- and nano-LC-MS offer improved sustainability. These systems significantly reduce solvent and sample volumes, support high-throughput operations, and are more eco-efficient. Despite their higher energy footprint, their advanced features support GAC Principles 5, 7, and 9, emphasizing automation, waste reduction, and energy optimization. Therefore, their environmental performance should be evaluated in context and potentially rewarded for innovative and sustainable adaptations. The comprehensive framework for the Instrumentation Score is summarized in Table 3, which outlines the scoring criteria for each parameter.
+
+
+
+Table 3: Criteria of Instrumentation score
+Energy	Score
+Non-instrumental methods
+0 KWh	100
+≤0.1 KWh per sample	95
+≤1.5 KWh per sample	85
+>1.5 kwh per sample	75
+Emission of Vapors	Subtract 20 from the total score of instrumentation
+Manual or non-automated	Subtract 5 from the total score
+The method is not multianalyte or Multiparameter Methods	Subtract 5 from the to the total score
+Maintenance and Instrument Lifetime	(Additional positive or negative scoring based on durability and frequency of maintenance)
+
+
+
+
+	The reagent Score
+ The Reagent Score evaluates the environmental sustainability and safety of solvents used in analytical methodologies, with a strong emphasis on selecting greener and less hazardous reagents. This scoring approach aligns with Principles 10 and 11 of GAC, which advocate for the avoidance of toxic reagents and the substitution of hazardous chemicals with safer alternatives. Water, recognized as the most environmentally benign solvent, is assigned the highest possible score of 100. Other solvents are evaluated based on their classification under the Globally Harmonized System (GHS) of hazard communication[44] considering both the number and type of hazard pictograms and the volume used during analysis. Solvents bearing only one GHS pictogram accompanied by a “warning” signal word receive relatively high scores ranging from 98 for volumes <1 mL to 92 for volumes >100 mL. If a solvent has one pictogram with a “danger” signal word or two pictograms with a warning, the score is moderately reduced, ranging from 90 (<1 mL) to 75 (>100 mL). As the number of hazard pictograms increases and the severity of the signal word escalates to “danger,” the score continues to decline. Solvents with two pictograms and a danger signal word are rated from 70 (<1 mL) to 55 (>100 mL). The most hazardous solvents—those with three or more pictograms and a danger classification—receive the lowest scores, ranging from 50 (<1 mL) to 35 (>100 mL). 
+To encourage minimal use of hazardous solvents, the scoring system incorporates volume-weighted deductions, ensuring that methods using lower quantities of dangerous solvents receive better scores compared to those employing larger volumes. This directly supports efforts to reduce the environmental and health impacts of chemical usage in analytical laboratories. The total Reagent Score for a method is calculated by averaging the individual scores of all solvents used, as per the formula below
+Total reagent score = (∑▒〖the score for each solvent〗  )/(The number of utilized solvent)---------2
+This framework not only penalizes the use of toxic solvents but also incentivizes the adoption of eco-friendly reagents in smaller quantities, thereby promoting safer and more sustainable analytical practices. Table 4 summarizes the criteria for assigning reagent scores based on GHS classification and volume.
+
+
+
+
+
+
+
+
+
+Table 4: Criteria for Reagent Score Based on GHS Classification and Volume
+Solvent Type (GHS Classification)	Volume Used	Score
+Water
+	Any volume	100
+One pictogram + "Warning"	< 1 ml
+<10 ml (g)
+10-100 ml (g)
+>100 ml (g	98
+96
+94
+92
+One pictogram + "Danger", or Two pictograms + "Warning"	< 1 ml
+<10 ml (g)
+10-100 ml (g)
+>100 ml (g)	90
+85
+80
+75
+Two pictograms + "Danger"	< 1 ml
+<10 ml (g)
+10-100 ml (g)
+>100 ml (g)	70
+65
+60
+55
+Three or more pictograms + "Danger"	< 1 ml
+<10 ml (g)
+10-100 ml (g)
+>100 ml (g)	50
+45
+40
+35
+
+N.B. Reagent score = (The sum of the score for each solvent )/(The number of utilized solvent) 
+2.4. The Waste Score
+ 	The Waste Score assesses the environmental impact of waste generation in an analytical method, promoting minimal waste production and proper waste management. Lower waste volumes receive higher scores, aligning with GAC Principles 4 and 7 which emphasize waste reduction, and encourage waste treatment. The scoring system for solvent waste management is based on both the volume of waste generated and its biodegradability. For waste volumes of less than 1 mL, the score is 100 points. When dealing with waste volumes between 1 and 10 mL, biodegradable substances score 90 points, whereas non-biodegradable ones score 80 points. For larger volumes ranging from 11 to 100 mL, biodegradable substances are assigned 70 points, and non-biodegradable ones receive 50 points. In cases where the waste volume exceeds 100 mL, biodegradable substances score 35 points, while non-biodegradable substances are rated at 25 points. If no treatment is applied to the waste, 5 points are subtracted from the total score. However, implementing a treatment process to reuse the solvent can improve the score: reusing less than 10 mL adds 10 points to the total, and reusing more than 10 mL adds 20 points.
+Table 5: Criteria for Waste Score Based on Volume, Biodegradability, and Treatment
+Amount of Waste per Sample	Condition	Score
+< 1 mL	—	100
+1–10 mL	Biodegradable	90
+	Non-biodegradable	80
+11–100 mL	Biodegradable	70
+	Non-biodegradable	50
+>100 mL	Biodegradable	35
+	Non-biodegradable	25
+No treatment applied	—	Subtract 5 points
+Treatment with reuse < 10 mL	—	Add 10 points
+Treatment with reuse > 10 mL	—	Add 20 points
+
+
+
+
+
+2.5. The total EI
+The total EI score is calculated by summing the individual scores, dividing the sum by 4, and then subtracting the result from 100. 
+EI total score =100 - (Sample prepration score +Reagent score+ Instrumentation score +Waste score)/4……. 3
+All calculated values are rounded to the nearest integer. A lower total EI score reflects a greener and more environmentally sustainable analytical method. A score of 0 indicates no environmental impact, representing the ideal green method. If the score is less than or equal to 25, the method is considered environmentally friendly and poses minimal impact, requiring no significant modifications. A score in the range of 26 to 50 reflects a considerable environmental impact, suggesting that improvements should be made to enhance the method’s sustainability. Conversely, a score greater than 50 signifies a serious environmental impact, indicating that the method is not sustainable in its current form and requires immediate intervention to reduce its environmental impact. This scoring system enables researchers to identify and prioritize analytical methods that align with the principles of GAC by quantifying their overall ecological impact (Table 6). 
+.
+  Table 6: The significance of EI total score
+EI Total Score	Environmental Impact	Interpretation	Color 
+0	No impact	Ideal green analytical method	Drak green
+≤25	Minimal impact	Environmentally friendly and sustainable	Light green 
+26–50	Considerable impact	Method requires improvements for sustainability	yellow
+>50	Serious impact	Unsustainable method needing urgent intervention	Red 
+
+The four scores of the EI scale are plotted in a histogram, with each column representing one score. The total EI score was displayed in a box at the top right corner, with its color ranging from yellow to green to red, indicating the environmental impact.

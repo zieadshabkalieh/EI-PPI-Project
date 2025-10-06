@@ -1,0 +1,450 @@
+/* Chemistry-themed animation styles */
+
+/* Loader Container */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.loader-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animated chemistry beaker */
+.chemistry-beaker {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  background-color: rgba(230, 245, 255, 0.8);
+  border: 3px solid #2c3e50;
+  border-radius: 5px 5px 15px 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.beaker-liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to bottom, 
+    rgba(52, 152, 219, 0.7),
+    rgba(41, 128, 185, 0.9)
+  );
+  animation: bubble 2.5s infinite ease-in-out;
+}
+
+.beaker-bubbles {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.bubble-1 {
+  left: 15px;
+  bottom: 10px;
+  animation: rise 3s infinite ease-in-out;
+}
+
+.bubble-2 {
+  left: 40px;
+  bottom: 20px;
+  animation: rise 2.5s infinite ease-in-out 0.5s;
+}
+
+.bubble-3 {
+  left: 60px;
+  bottom: 5px;
+  animation: rise 2.8s infinite ease-in-out 1s;
+}
+
+/* Animated molecules */
+.molecule-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.molecule {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.molecule-1 {
+  top: 20%;
+  left: 30%;
+  animation: float 4s infinite ease-in-out;
+}
+
+.molecule-2 {
+  top: 60%;
+  left: 60%;
+  animation: float 5s infinite ease-in-out 1s;
+}
+
+.molecule-3 {
+  top: 40%;
+  left: 75%;
+  animation: float 4.5s infinite ease-in-out 0.5s;
+}
+
+.atom {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  animation: orbit 3s infinite linear;
+}
+
+.molecule-1 .atom {
+  animation-duration: 3s;
+}
+
+.molecule-2 .atom {
+  animation-duration: 4s;
+}
+
+.molecule-3 .atom {
+  animation-duration: 3.5s;
+}
+
+/* Loading text */
+.loading-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Enhanced Tab transition animations */
+.tab-content {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+  transform-origin: center center;
+}
+
+.tab-content.fade-in {
+  animation: enhancedFadeIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.tab-content.fade-out {
+  animation: enhancedFadeOut 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Tab pulse animation for feedback */
+.tab-pulse {
+  animation: tabPulse 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Additional tab transition effects */
+.slide-in-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.tab-shadow-pulse {
+  animation: shadowPulse 2s infinite ease-in-out;
+}
+
+/* Keyframe animations */
+@keyframes bubble {
+  0%, 100% {
+    height: 60%;
+    background-color: rgba(52, 152, 219, 0.7);
+  }
+  50% {
+    height: 65%;
+    background-color: rgba(41, 128, 185, 0.8);
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-60px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px);
+  }
+  50% {
+    transform: translate(0, -15px);
+  }
+  75% {
+    transform: translate(-10px, -5px);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(15px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(15px) rotate(-360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Page load animation */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pageTransition 1.5s forwards;
+}
+
+@keyframes pageTransition {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Chemical reaction animation for transitions */
+.reaction-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reactant {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--reagent-color);
+  position: relative;
+  animation: reactantMove 2s forwards;
+}
+
+.product {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--sample-prep-color);
+  position: relative;
+  opacity: 0;
+  animation: productAppear 2s forwards 1s;
+}
+
+.arrow {
+  width: 60px;
+  height: 5px;
+  background-color: var(--dark-color);
+  margin: 0 20px;
+  position: relative;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: -7.5px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid var(--dark-color);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+@keyframes reactantMove {
+  0% {
+    transform: translateX(0) scale(1);
+    background-color: var(--reagent-color);
+  }
+  50% {
+    transform: translateX(20px) scale(1.2);
+    background-color: var(--warning-color);
+  }
+  100% {
+    transform: translateX(30px) scale(0.8);
+    opacity: 0.2;
+  }
+}
+
+@keyframes productAppear {
+  0% {
+    transform: translateX(-30px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Loading spinner for computational operations */
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-color);
+  margin: 20px auto;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    background-color: var(--secondary-color);
+  } 
+  50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    background-color: var(--sample-prep-color);
+  } 
+  100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    background-color: var(--secondary-color);
+  }
+}
+
+/* New enhanced animations */
+@keyframes enhancedFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.98) translateY(15px);
+    filter: blur(2px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.01) translateY(-2px);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes enhancedFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98) translateY(-15px);
+    filter: blur(2px);
+  }
+}
+
+@keyframes tabPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  }
+}

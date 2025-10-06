@@ -1,0 +1,26 @@
+/* Additional styles for the reagent form */
+.solvent-name-field {
+  display: none; /* Hidden by default */
+  margin-bottom: 15px;
+}
+
+/* Make it visible when its parent has the non-water class */
+.non-water .solvent-name-field {
+  display: block;
+}
+
+/* Ensure label is visible */
+.solvent-name-field .reagent-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Style the input field */
+.solvent-name-field input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}

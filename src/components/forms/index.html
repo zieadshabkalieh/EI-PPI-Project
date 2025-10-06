@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prevent browser caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Environmental, Practicality, and Performance Index (EPPI)</title>
+    <!-- Local CSS resources with cache busting -->
+    <link rel="stylesheet" href="styles.css?v=20250427_9">
+    <link rel="stylesheet" href="styles-dropdown.css?v=20250427_9">
+    <link rel="stylesheet" href="styles-radio.css?v=20250427_9">
+    <link rel="stylesheet" href="styles-reagent.css?v=20250427_9">
+    <link rel="stylesheet" href="animations.css?v=20250427_9">
+    <link rel="stylesheet" href="analytical-animations.css?v=20250427_9">
+    <link rel="stylesheet" href="tab-watermarks.css?v=20250427_9">
+    <link rel="stylesheet" href="mobile-responsive.css?v=20250427_9">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css?v=20250427_9">
+    
+    <!-- Add manifest for Progressive Web App support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    
+    <!-- Offline app capability -->
+    <script>
+        // Register service worker for offline capability
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', function() {
+        //         navigator.serviceWorker.register('service-worker.js')
+        //             .then(function(registration) {
+        //                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        //             })
+        //             .catch(function(error) {
+        //                 console.log('ServiceWorker registration failed: ', error);
+        //             });
+        //     });
+        // }
+    </script>
+    
+    <!-- Local JavaScript resources with cache busting -->
+    <script src="vendors/chart.min.js?v=20250427_9"></script>
+    <script src="vendors/chartjs-plugin-annotation.min.js?v=20250427_9"></script>
+    <script src="vendors/feather.min.js?v=20250427_9"></script>
+    <script src="vendors/jspdf.umd.min.js?v=20250427_9"></script>
+    <script src="vendors/exceljs.min.js?v=20250427_9"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="web-renderer.js" type="module"></script>
+    <script>
+        // Force reload of cached files with enhanced cache busting
+        const CURRENT_VERSION = '20250427_9'; // Increment this when updating
+        
+        function clearBrowserCache() {
+            console.log('Clearing browser cache and reloading...');
+            
+            // Clear application cache (for older browsers)
+            if (window.applicationCache && window.applicationCache.swapCache) {
+                try {
+                    window.applicationCache.swapCache();
+                } catch (e) {
+                    console.log('AppCache swap error (can be ignored):', e);
+                }
+            }
+            
+            // Clear service worker caches
+            if (window.caches) {
+                caches.keys().then(function(names) {
+                    for (let name of names) {
+                        console.log('Deleting cache:', name);
+                        caches.delete(name);
+                    }
+                });
+            }
+            
+            // For Chrome: Adding meta tags to prevent caching
+            const metaCache = document.createElement('meta');
+            metaCache.httpEquiv = 'Cache-Control';
+            metaCache.content = 'no-cache, no-store, must-revalidate';
+            document.getElementsByTagName('head')[0].appendChild(metaCache);
+            
+            const metaPragma = document.createElement('meta');
+            metaPragma.httpEquiv = 'Pragma';
+            metaPragma.content = 'no-cache';
+            document.getElementsByTagName('head')[0].appendChild(metaPragma);
+            
+            const metaExpires = document.createElement('meta');
+            metaExpires.httpEquiv = 'Expires';
+            metaExpires.content = '0';
+            document.getElementsByTagName('head')[0].appendChild(metaExpires);
+            
+            // Clear localStorage cache entries for any component data
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('cache_')) {
+                    localStorage.removeItem(key);
+                }
+            }
+            
+            // Update version in localStorage
+            localStorage.setItem('last_update', CURRENT_VERSION);
+            
+            // Reload with a truly fresh request by adding a timestamp to URL
+            // This is more reliable than window.location.reload(true)
+            setTimeout(function() {
+                const timestamp = new Date().getTime();
+                if (window.location.search.indexOf('cache_bust') > -1) {
+                    // Already has cache_bust, replace it
+                    window.location.href = window.location.href.replace(
+                        /cache_bust=\d+/, 
+                        'cache_bust=' + timestamp
+                    );
+                } else {
+                    // Add cache_bust parameter
+                    const separator = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + separator + 'cache_bust=' + timestamp;
+                }
+            }, 500);
+        }
+        
+        // Check if we need to update
+        if (localStorage.getItem('last_update') !== CURRENT_VERSION) {
+            clearBrowserCache();
+        }
+    </script>
+</body>
+</html>

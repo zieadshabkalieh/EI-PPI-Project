@@ -1,0 +1,637 @@
+import { translate, onLanguageChange, offLanguageChange } from '../utils/i18n.js';
+import { DualColumnHistogram } from './visualizations/DualColumnHistogram.js';
+import { RadarChart } from './visualizations/RadarChart.js';
+
+export function Results(scores, eiColorClass, practicalityColorClass) {
+  // Create the main element that will be returned
+  const resultsElement = document.createElement('div');
+  resultsElement.className = 'results-component';
+  
+  // Function to handle language changes
+  const handleLanguageChange = () => {
+    renderResults();
+  };
+  
+  // Register for language change notifications
+  onLanguageChange(handleLanguageChange);
+  
+  // Define the render function that will build the results UI
+  const renderResults = () => {
+    // Clear any existing content
+    resultsElement.innerHTML = '';
+    
+    // Create the results container
+    const resultsContainer = document.createElement('div');
+    resultsContainer.className = 'form-section card';
+    
+    // Results header
+    const header = document.createElement('div');
+    header.className = 'results-header';
+    
+    const title = document.createElement('h3');
+    title.textContent = translate('EI Scale Results');
+    header.appendChild(title);
+    
+    resultsContainer.appendChild(header);
+    
+    // Check if all component scores are available
+    const missingScores = [];
+    if (scores.samplePrep === 0) missingScores.push(translate('Sample Preparation'));
+    if (scores.reagent === 0) missingScores.push(translate('Reagent'));
+    if (scores.instrumentation === 0) missingScores.push(translate('Instrumentation'));
+    if (scores.waste === 0) missingScores.push(translate('Waste'));
+    
+    if (missingScores.length > 0) {
+      // Display message for missing scores
+      const missingScoresInfo = document.createElement('div');
+      missingScoresInfo.className = 'info-card';
+      missingScoresInfo.innerHTML = `
+        <div class="info-card-title">${translate('Please complete all four scoring components before viewing results.')}</div>
+        <div class="info-card-content">
+          <p><strong>${translate('Missing scores:')}</strong> ${missingScores.join(', ')}</p>
+          <p>${translate('Steps to complete:')}</p>
+          <ol>
+            <li>${translate('Navigate to each of the missing component pages using the tabs above')}</li>
+            <li>${translate('Fill in the required information')}</li>
+            <li>${translate('Complete all components')}</li>
+            <li>${translate('Return to this page to view your results')}</li>
+          </ol>
+        </div>
+      `;
+      resultsContainer.appendChild(missingScoresInfo);
+      resultsElement.appendChild(resultsContainer);
+      return;
+    }
+    
+    // If we have all scores, show the dual scoring system results
+    
+    // Create wrapper for the two score sections
+    const dualScoreWrapper = document.createElement('div');
+    dualScoreWrapper.className = 'dual-score-wrapper';
+    
+    // ======== Environmental Index (EI) SECTION ========
+    const eiIndexContainer = document.createElement('div');
+    eiIndexContainer.className = 'score-container ei-index-container';
+    
+    const eiIndexHeader = document.createElement('h4');
+    eiIndexHeader.textContent = translate('Environmental Index (EI) (70%)');
+    eiIndexContainer.appendChild(eiIndexHeader);
+    
+    const eiIndexValue = document.createElement('div');
+    eiIndexValue.className = 'score-value';
+    eiIndexValue.textContent = scores.eiIndex ? scores.eiIndex.toFixed(1) : '0.0';
+    eiIndexContainer.appendChild(eiIndexValue);
+    
+    // Environmental Index (EI) Score interpretation
+    const eiScoreInterpretation = document.createElement('div');
+    eiScoreInterpretation.className = `score-interpretation ${eiColorClass}`;
+    
+    let eiInterpretationText = '';
+    if (scores.eiIndex >= 75) {
+      eiInterpretationText = translate('Ideal Green');
+    } else if (scores.eiIndex >= 50) {
+      eiInterpretationText = translate('Minimal Impact');
+    } else if (scores.eiIndex >= 25) {
+      eiInterpretationText = translate('Considerable Impact');
+    } else {
+      eiInterpretationText = translate('Serious Impact');
+    }
+    
+    eiScoreInterpretation.textContent = eiInterpretationText;
+    eiIndexContainer.appendChild(eiScoreInterpretation);
+    
+    const eiScoreDescription = document.createElement('div');
+    eiScoreDescription.className = 'score-description';
+    eiScoreDescription.textContent = translate('Environmental sustainability of your analytical method');
+    eiIndexContainer.appendChild(eiScoreDescription);
+    
+    dualScoreWrapper.appendChild(eiIndexContainer);
+    
+    // ======== Performance Practicality Index (PPI) SECTION ========
+    const piIndexContainer = document.createElement('div');
+    piIndexContainer.className = 'score-container practicality-index-container';
+    
+    const piIndexHeader = document.createElement('h4');
+    piIndexHeader.textContent = translate('Performance Practicality Index (PPI) (30%)');
+    piIndexContainer.appendChild(piIndexHeader);
+    
+    const piIndexValue = document.createElement('div');
+    piIndexValue.className = 'score-value';
+    piIndexValue.textContent = scores.practicality ? scores.practicality.toFixed(1) : '0.0';
+    piIndexContainer.appendChild(piIndexValue);
+    
+    // Practicality Score interpretation
+    const piScoreInterpretation = document.createElement('div');
+    piScoreInterpretation.className = `score-interpretation ${practicalityColorClass}`;
+    
+    let piInterpretationText = '';
+    if (scores.practicality >= 75) {
+      piInterpretationText = translate('Excellent');
+    } else if (scores.practicality >= 50) {
+      piInterpretationText = translate('Acceptable');
+    } else {
+      piInterpretationText = translate('Impractical');
+    }
+    
+    piScoreInterpretation.textContent = piInterpretationText;
+    piIndexContainer.appendChild(piScoreInterpretation);
+    
+    const piScoreDescription = document.createElement('div');
+    piScoreDescription.className = 'score-description';
+    piScoreDescription.textContent = translate('Real-world applicability of your analytical method');
+    piIndexContainer.appendChild(piScoreDescription);
+    
+    dualScoreWrapper.appendChild(piIndexContainer);
+    
+    // ======== TOTAL SCORE SECTION ========
+    const totalScoreContainer = document.createElement('div');
+    totalScoreContainer.className = 'total-score-container';
+    
+    const totalScoreHeader = document.createElement('h4');
+    totalScoreHeader.textContent = translate('Total EI Scale Score');
+    totalScoreHeader.style.marginTop = '30px';
+    totalScoreContainer.appendChild(totalScoreHeader);
+    
+    const totalScoreValue = document.createElement('div');
+    totalScoreValue.className = 'total-score-value';
+    totalScoreValue.textContent = scores.total.toFixed(1);
+    totalScoreContainer.appendChild(totalScoreValue);
+    
+    const weightInfoText = document.createElement('div');
+    weightInfoText.className = 'weight-info';
+    weightInfoText.innerHTML = `<small>${translate('(weighted 70% Environmental Index (EI) + 30% Performance Practicality Index (PPI))')}</small>`;
+    totalScoreContainer.appendChild(weightInfoText);
+    
+    resultsContainer.appendChild(dualScoreWrapper);
+    resultsContainer.appendChild(totalScoreContainer);
+    
+    // ======== INTERPRETATION SECTIONS ========
+    
+    // Create Environmental Index (EI) Interpretation Section (without table)
+    const eiInterpretationSection = document.createElement('div');
+    eiInterpretationSection.className = 'interpretation-section card-style';
+    eiInterpretationSection.style.marginTop = '30px';
+    eiInterpretationSection.style.padding = '20px';
+    eiInterpretationSection.style.borderRadius = '8px';
+    eiInterpretationSection.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+    
+    // Add interpretation header
+    const eiInterpretationHeader = document.createElement('h4');
+    eiInterpretationHeader.textContent = translate('Environmental Index (EI) Interpretation');
+    eiInterpretationHeader.style.marginBottom = '15px';
+    eiInterpretationSection.appendChild(eiInterpretationHeader);
+    
+    // Add formula explanation
+    const eiFormulaExplanation = document.createElement('div');
+    eiFormulaExplanation.className = 'formula-explanation';
+    eiFormulaExplanation.style.backgroundColor = '#f5f5f5';
+    eiFormulaExplanation.style.padding = '12px';
+    eiFormulaExplanation.style.borderRadius = '6px';
+    eiFormulaExplanation.style.marginBottom = '20px';
+    eiFormulaExplanation.style.fontSize = '15px';
+    
+    eiFormulaExplanation.innerHTML = `
+      <strong>${translate('Formula:')}</strong> EI = (S + I + R + W) / 4
+      <div style="margin-top: 10px;">
+        <div><span style="display: inline-block; width: 15px; text-align: right;">S:</span> ${translate('Sample Preparation')} = ${scores.samplePrep.toFixed(1)}</div>
+        <div><span style="display: inline-block; width: 15px; text-align: right;">I:</span> ${translate('Instrumentation')} = ${scores.instrumentation.toFixed(1)}</div>
+        <div><span style="display: inline-block; width: 15px; text-align: right;">R:</span> ${translate('Reagent')} = ${scores.reagent.toFixed(1)}</div>
+        <div><span style="display: inline-block; width: 15px; text-align: right;">W:</span> ${translate('Waste')} = ${scores.waste.toFixed(1)}</div>
+        <div style="margin-top: 8px; font-weight: bold;">
+          EI = (${scores.samplePrep.toFixed(1)} + ${scores.instrumentation.toFixed(1)} + ${scores.reagent.toFixed(1)} + ${scores.waste.toFixed(1)}) / 4 = ${scores.eiIndex.toFixed(1)}
+        </div>
+      </div>
+    `;
+    
+    eiInterpretationSection.appendChild(eiFormulaExplanation);
+    
+    // Add color-coded interpretation cards
+    const eiInterpretationCards = document.createElement('div');
+    eiInterpretationCards.className = 'interpretation-cards';
+    eiInterpretationCards.style.display = 'flex';
+    eiInterpretationCards.style.flexWrap = 'wrap';
+    eiInterpretationCards.style.gap = '10px';
+    eiInterpretationCards.style.justifyContent = 'space-between';
+    
+    // Create interpretation cards
+    const eiInterpretationData = [
+      { range: '75–100', text: translate('Ideal Green Method – No environmental impact'), color: 'dark-green' },
+      { range: '50–75', text: translate('Minimal Impact – Environmentally sustainable'), color: 'light-green' },
+      { range: '25–50', text: translate('Considerable Impact – Requires improvement'), color: 'yellow' },
+      { range: '<25', text: translate('Serious Impact – Unsustainable method'), color: 'red' }
+    ];
+    
+    eiInterpretationData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = `interpretation-card ${item.color === eiColorClass ? 'active-interpretation' : ''}`;
+      card.style.flex = '1 0 45%';
+      card.style.padding = '12px';
+      card.style.borderRadius = '6px';
+      card.style.border = `2px solid ${item.color === eiColorClass ? '#333' : 'transparent'}`;
+      card.style.backgroundColor = item.color === eiColorClass ? 'rgba(0,0,0,0.05)' : 'transparent';
+      card.style.position = 'relative';
+      
+      const colorDot = document.createElement('span');
+      colorDot.className = `color-dot ${item.color}`;
+      colorDot.style.marginRight = '8px';
+      
+      const range = document.createElement('span');
+      range.style.fontWeight = 'bold';
+      range.textContent = item.range;
+      
+      const text = document.createElement('div');
+      text.style.marginTop = '5px';
+      text.textContent = item.text;
+      
+      if (item.color === eiColorClass) {
+        const indicator = document.createElement('div');
+        indicator.textContent = '✓';
+        indicator.style.position = 'absolute';
+        indicator.style.top = '8px';
+        indicator.style.right = '8px';
+        indicator.style.fontWeight = 'bold';
+        card.appendChild(indicator);
+      }
+      
+      card.appendChild(colorDot);
+      card.appendChild(range);
+      card.appendChild(text);
+      
+      eiInterpretationCards.appendChild(card);
+    });
+    
+    eiInterpretationSection.appendChild(eiInterpretationCards);
+    resultsContainer.appendChild(eiInterpretationSection);
+    
+    // Create Performance Practicality Index (PPI) Interpretation Section (without table)
+    const piInterpretationSection = document.createElement('div');
+    piInterpretationSection.className = 'interpretation-section card-style';
+    piInterpretationSection.style.marginTop = '30px';
+    piInterpretationSection.style.padding = '20px';
+    piInterpretationSection.style.borderRadius = '8px';
+    piInterpretationSection.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+    
+    // Add interpretation header
+    const piInterpretationHeader = document.createElement('h4');
+    piInterpretationHeader.textContent = translate('Performance Practicality Index (PPI) Interpretation');
+    piInterpretationHeader.style.marginBottom = '15px';
+    piInterpretationSection.appendChild(piInterpretationHeader);
+    
+    // Add formula explanation
+    const piFormulaExplanation = document.createElement('div');
+    piFormulaExplanation.className = 'formula-explanation';
+    piFormulaExplanation.style.backgroundColor = '#f5f5f5';
+    piFormulaExplanation.style.padding = '12px';
+    piFormulaExplanation.style.borderRadius = '6px';
+    piFormulaExplanation.style.marginBottom = '20px';
+    piFormulaExplanation.style.fontSize = '15px';
+    
+    piFormulaExplanation.innerHTML = `
+      <strong>${translate('Formula:')}</strong> PI = ∑ (Weighted scores from 9 core criteria)
+      <div style="margin-top: 10px;">
+        ${translate('Sum of all weighted criteria scores:')} ${scores.practicality.toFixed(1)}
+      </div>
+    `;
+    
+    piInterpretationSection.appendChild(piFormulaExplanation);
+    
+    // Add color-coded interpretation cards
+    const piInterpretationCards = document.createElement('div');
+    piInterpretationCards.className = 'interpretation-cards';
+    piInterpretationCards.style.display = 'flex';
+    piInterpretationCards.style.flexWrap = 'wrap';
+    piInterpretationCards.style.gap = '10px';
+    piInterpretationCards.style.justifyContent = 'space-between';
+    
+    // Create interpretation cards
+    const piInterpretationData = [
+      { range: '75–100', text: translate('Excellent Performance Practicality Index (PPI) – Highly applicable and efficient'), color: 'dark-blue' },
+      { range: '50–74', text: translate('Acceptable Performance Practicality Index (PPI) – Viable with moderate optimization'), color: 'light-blue' },
+      { range: '<50', text: translate('Impractical Performance Practicality Index (PPI) – Limited real-world feasibility, needs improvement'), color: 'magenta' }
+    ];
+    
+    piInterpretationData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = `interpretation-card ${item.color === practicalityColorClass ? 'active-interpretation' : ''}`;
+      card.style.flex = '1 0 30%';
+      card.style.padding = '12px';
+      card.style.borderRadius = '6px';
+      card.style.border = `2px solid ${item.color === practicalityColorClass ? '#333' : 'transparent'}`;
+      card.style.backgroundColor = item.color === practicalityColorClass ? 'rgba(0,0,0,0.05)' : 'transparent';
+      card.style.position = 'relative';
+      
+      const colorDot = document.createElement('span');
+      colorDot.className = `color-dot ${item.color}`;
+      colorDot.style.marginRight = '8px';
+      
+      const range = document.createElement('span');
+      range.style.fontWeight = 'bold';
+      range.textContent = item.range;
+      
+      const text = document.createElement('div');
+      text.style.marginTop = '5px';
+      text.textContent = item.text;
+      
+      if (item.color === practicalityColorClass) {
+        const indicator = document.createElement('div');
+        indicator.textContent = '✓';
+        indicator.style.position = 'absolute';
+        indicator.style.top = '8px';
+        indicator.style.right = '8px';
+        indicator.style.fontWeight = 'bold';
+        card.appendChild(indicator);
+      }
+      
+      card.appendChild(colorDot);
+      card.appendChild(range);
+      card.appendChild(text);
+      
+      piInterpretationCards.appendChild(card);
+    });
+    
+    piInterpretationSection.appendChild(piInterpretationCards);
+    resultsContainer.appendChild(piInterpretationSection);
+    
+    // Component scores header
+    const componentScoresHeader = document.createElement('h4');
+    componentScoresHeader.textContent = translate('Component Scores');
+    componentScoresHeader.style.textAlign = 'center';
+    componentScoresHeader.style.margin = '30px 0 20px';
+    resultsContainer.appendChild(componentScoresHeader);
+    
+    // Component scores grid layout
+    const componentScoresContainer = document.createElement('div');
+    componentScoresContainer.className = 'component-scores-container';
+    
+    // Sample Preparation Score Card
+    const samplePrepCard = document.createElement('div');
+    samplePrepCard.className = 'component-score-card sample-prep';
+    
+    const samplePrepIcon = document.createElement('div');
+    samplePrepIcon.className = 'component-icon';
+    samplePrepIcon.innerHTML = '🧪';
+    samplePrepCard.appendChild(samplePrepIcon);
+    
+    const samplePrepName = document.createElement('div');
+    samplePrepName.className = 'component-name';
+    samplePrepName.textContent = translate('Sample Preparation');
+    samplePrepCard.appendChild(samplePrepName);
+    
+    const samplePrepScore = document.createElement('div');
+    samplePrepScore.className = 'component-score';
+    samplePrepScore.textContent = scores.samplePrep.toFixed(1);
+    samplePrepCard.appendChild(samplePrepScore);
+    
+    const samplePrepDesc = document.createElement('div');
+    samplePrepDesc.className = 'component-description';
+    samplePrepDesc.textContent = translate('Evaluates pre-synthesis steps, handling procedures, and extraction methods');
+    samplePrepCard.appendChild(samplePrepDesc);
+    
+    componentScoresContainer.appendChild(samplePrepCard);
+    
+    // Reagent Score Card
+    const reagentCard = document.createElement('div');
+    reagentCard.className = 'component-score-card reagent';
+    
+    const reagentIcon = document.createElement('div');
+    reagentIcon.className = 'component-icon';
+    reagentIcon.innerHTML = '🧫';
+    reagentCard.appendChild(reagentIcon);
+    
+    const reagentName = document.createElement('div');
+    reagentName.className = 'component-name';
+    reagentName.textContent = translate('Reagent');
+    reagentCard.appendChild(reagentName);
+    
+    const reagentScore = document.createElement('div');
+    reagentScore.className = 'component-score';
+    reagentScore.textContent = scores.reagent.toFixed(1);
+    reagentCard.appendChild(reagentScore);
+    
+    const reagentDesc = document.createElement('div');
+    reagentDesc.className = 'component-description';
+    reagentDesc.textContent = translate('Assesses the environmental impact of solvents and chemicals used');
+    reagentCard.appendChild(reagentDesc);
+    
+    componentScoresContainer.appendChild(reagentCard);
+    
+    // Instrumentation Score Card
+    const instrumentationCard = document.createElement('div');
+    instrumentationCard.className = 'component-score-card instrumentation';
+    
+    const instrumentationIcon = document.createElement('div');
+    instrumentationIcon.className = 'component-icon';
+    instrumentationIcon.innerHTML = '🔬';
+    instrumentationCard.appendChild(instrumentationIcon);
+    
+    const instrumentationName = document.createElement('div');
+    instrumentationName.className = 'component-name';
+    instrumentationName.textContent = translate('Instrumentation');
+    instrumentationCard.appendChild(instrumentationName);
+    
+    const instrumentationScore = document.createElement('div');
+    instrumentationScore.className = 'component-score';
+    instrumentationScore.textContent = scores.instrumentation.toFixed(1);
+    instrumentationCard.appendChild(instrumentationScore);
+    
+    const instrumentationDesc = document.createElement('div');
+    instrumentationDesc.className = 'component-description';
+    instrumentationDesc.textContent = translate('Measures energy consumption and emission characteristics');
+    instrumentationCard.appendChild(instrumentationDesc);
+    
+    componentScoresContainer.appendChild(instrumentationCard);
+    
+    // Waste Score Card
+    const wasteCard = document.createElement('div');
+    wasteCard.className = 'component-score-card waste';
+    
+    const wasteIcon = document.createElement('div');
+    wasteIcon.className = 'component-icon';
+    wasteIcon.innerHTML = '♻️';
+    wasteCard.appendChild(wasteIcon);
+    
+    const wasteName = document.createElement('div');
+    wasteName.className = 'component-name';
+    wasteName.textContent = translate('Waste');
+    wasteCard.appendChild(wasteName);
+    
+    const wasteScore = document.createElement('div');
+    wasteScore.className = 'component-score';
+    wasteScore.textContent = scores.waste.toFixed(1);
+    wasteCard.appendChild(wasteScore);
+    
+    const wasteDesc = document.createElement('div');
+    wasteDesc.className = 'component-description';
+    wasteDesc.textContent = translate('Evaluates volume and treatment of waste produced');
+    wasteCard.appendChild(wasteDesc);
+    
+    componentScoresContainer.appendChild(wasteCard);
+    
+    resultsContainer.appendChild(componentScoresContainer);
+    
+    // Add visualizations section
+    const visualizationsHeader = document.createElement('h4');
+    visualizationsHeader.textContent = translate('Score Visualizations');
+    visualizationsHeader.style.textAlign = 'center';
+    visualizationsHeader.style.margin = '30px 0 20px';
+    resultsContainer.appendChild(visualizationsHeader);
+    
+    // Create dual column visualization
+    const histogramContainer = document.createElement('div');
+    histogramContainer.style.margin = '20px 0';
+    histogramContainer.style.height = '300px';
+    
+    // Create radar visualization
+    const radarContainer = document.createElement('div');
+    radarContainer.style.margin = '40px 0';
+    radarContainer.style.height = '350px';
+    
+    // Add visualizations to the results container
+    resultsContainer.appendChild(histogramContainer);
+    resultsContainer.appendChild(radarContainer);
+    
+    // Append the dual column histogram
+    const histogram = new DualColumnHistogram(
+      histogramContainer,
+      scores.eiIndex,
+      scores.practicality,
+      eiColorClass,
+      practicalityColorClass
+    );
+    
+    // Append the radar chart
+    const radarChart = new RadarChart(
+      radarContainer, 
+      [
+        scores.samplePrep,
+        scores.instrumentation,
+        scores.reagent,
+        scores.waste
+      ],
+      [
+        translate('Sample Preparation'),
+        translate('Instrumentation'),
+        translate('Reagent'),
+        translate('Waste')
+      ]
+    );
+    
+    // Add comparison and recommendations section
+    const comparisonHeader = document.createElement('h4');
+    comparisonHeader.textContent = translate('Analysis and Recommendations');
+    comparisonHeader.style.textAlign = 'center';
+    comparisonHeader.style.margin = '30px 0 20px';
+    resultsContainer.appendChild(comparisonHeader);
+    
+    // Create comparison card
+    const comparisonCard = document.createElement('div');
+    comparisonCard.className = 'analysis-card';
+    comparisonCard.style.backgroundColor = '#f9f9f9';
+    comparisonCard.style.borderRadius = '8px';
+    comparisonCard.style.padding = '20px';
+    comparisonCard.style.marginBottom = '20px';
+    
+    // Add relevant analysis based on scores
+    const comparisonInfo = document.createElement('div');
+    comparisonInfo.className = 'component-comparison';
+    comparisonInfo.innerHTML = `
+      <div>
+        <p><strong>${translate('Environmental Impact Analysis:')}</strong></p>
+        <p>${getEIAnalysis(scores)}</p>
+      </div>
+      <div style="margin-top: 15px;">
+        <p><strong>${translate('Performance Practicality Index (PPI) Analysis:')}</strong></p>
+        <p>${getPracticalityAnalysis(scores)}</p>
+      </div>
+    `;
+    
+    comparisonCard.appendChild(comparisonInfo);
+    
+    // Add recommendations
+    const recommendationsSection = document.createElement('div');
+    recommendationsSection.className = 'recommendations-section';
+    recommendationsSection.style.marginTop = '20px';
+    
+    const recommendationsHeader = document.createElement('h5');
+    recommendationsHeader.textContent = translate('Recommendations for Improvement');
+    recommendationsHeader.style.marginBottom = '10px';
+    recommendationsSection.appendChild(recommendationsHeader);
+    
+    const suggestionText = document.createElement('p');
+    suggestionText.innerHTML = getRecommendations(scores);
+    recommendationsSection.appendChild(suggestionText);
+    
+    comparisonCard.appendChild(recommendationsSection);
+    resultsContainer.appendChild(comparisonCard);
+    
+    // Add the results container to the results element
+    resultsElement.appendChild(resultsContainer);
+  };
+  
+  // Helper function to generate EI analysis text
+  function getEIAnalysis(scores) {
+    if (scores.eiIndex >= 75) {
+      return translate('Your method achieves ideal green chemistry standards with minimal environmental impact.');
+    } else if (scores.eiIndex >= 50) {
+      return translate('Your method has a minimal environmental footprint, representing good green chemistry practices.');
+    } else if (scores.eiIndex >= 25) {
+      return translate('Your method has a moderate environmental impact that could benefit from specific improvements.');
+    } else {
+      return translate('Your method has significant environmental impacts that require substantial improvements to achieve sustainability.');
+    }
+  }
+  
+  // Helper function to generate Practicality analysis text
+  function getPracticalityAnalysis(scores) {
+    if (scores.practicality >= 75) {
+      return translate('Your method exhibits excellent practicality and is well-suited for routine implementation.');
+    } else if (scores.practicality >= 50) {
+      return translate('Your method has acceptable practicality but may benefit from optimization in certain areas.');
+    } else {
+      return translate('Your method shows limited practicality and may face challenges in real-world implementation.');
+    }
+  }
+  
+  // Helper function to generate recommendations based on scores
+  function getRecommendations(scores) {
+    let recommendations = '';
+    
+    // Sample preparation recommendations
+    if (scores.samplePrep <= 50) {
+      recommendations += `• <strong>${translate('Sample Preparation:')}</strong> ${translate('Consider simplifying extraction procedures, reducing solvent usage, or implementing automation.')}<br>`;
+    }
+    
+    // Instrumentation recommendations
+    if (scores.instrumentation <= 50) {
+      recommendations += `• <strong>${translate('Instrumentation:')}</strong> ${translate('Explore lower energy instruments, consider miniaturized alternatives, or optimize for multi-analyte analysis.')}<br>`;
+    }
+    
+    // Reagent recommendations
+    if (scores.reagent <= 50) {
+      recommendations += `• <strong>${translate('Reagents:')}</strong> ${translate('Substitute hazardous reagents with greener alternatives or reduce volumes used.')}<br>`;
+    }
+    
+    // Waste recommendations
+    if (scores.waste <= 50) {
+      recommendations += `• <strong>${translate('Waste:')}</strong> ${translate('Implement waste reduction strategies, improve treatment methods, or explore recycling possibilities.')}<br>`;
+    }
+    
+    // If everything is good
+    if (recommendations === '') {
+      recommendations = translate('Your method shows good environmental and practical characteristics. Continue monitoring and maintaining these standards.');
+    }
+    
+    return recommendations;
+  }
+  
+  // Clean up event listeners when this component is removed
+  resultsElement.addEventListener('remove', () => {
+    offLanguageChange(handleLanguageChange);
+  });
+  
+  // Initial render
+  renderResults();
+  
+  // Return the element
+  return resultsElement;
+}

@@ -1,0 +1,143 @@
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .container {
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .tab {
+    margin-right: 0;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+  }
+  
+  .tab.active {
+    transform: translateY(0);
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .form-control {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .component-scores-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group label {
+    font-size: 1.2rem;
+  }
+  
+  .radio-option {
+    margin-bottom: 15px;
+  }
+  
+  /* Make cards stack better on mobile */
+  .card {
+    padding: 15px;
+  }
+  
+  /* Improve form spacing on mobile */
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  /* Better form groups on mobile */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Improve touch targets */
+  input[type="radio"], 
+  input[type="checkbox"] {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Custom radio containers need more space on mobile */
+  .custom-radio-container,
+  .custom-checkbox-container {
+    padding: 14px 16px 14px 45px;
+    margin-bottom: 12px;
+  }
+  
+  /* Adjust app header for mobile */
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .app-header p {
+    font-size: 0.9rem;
+  }
+  
+  /* Improve info cards on mobile */
+  .info-card {
+    padding: 12px;
+  }
+  
+  /* Make result cards more readable on mobile */
+  .component-score-card {
+    padding: 15px;
+  }
+  
+  .component-name {
+    font-size: 16px;
+  }
+  
+  .component-score {
+    font-size: 20px;
+  }
+  
+  /* Adjust formula notes for mobile */
+  .formula-note {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phone screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .tab {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  
+  .custom-radio-container,
+  .custom-checkbox-container {
+    padding: 12px 14px 12px 40px;
+  }
+  
+  .option-score {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .form-group label {
+    font-size: 1.1rem;
+  }
+}

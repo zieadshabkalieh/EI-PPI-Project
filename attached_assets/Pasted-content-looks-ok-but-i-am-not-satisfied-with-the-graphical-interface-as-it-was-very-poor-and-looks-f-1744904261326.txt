@@ -1,0 +1,63 @@
+content looks ok but i am not satisfied with the graphical interface as it was very poor and looks flat and also make sure to diffrentate between each criteria either insertig box or making some special affects 
+
+next a color variation from one tab to other as that should be like the polar area chart each criteria should have lite color as a skin 
+
+remove the scores in the app mentioend in the () rather can add some important points at the end of each tabs like 
+This page helps you calculate the Sample Preparation Score for your analytical method. The score is based on four main criteria:
+1.	Pre-synthesis
+2.	Sampling required
+3.	Type of sample and sample efficiency
+4.	Extraction procedure
+Please fill in the information below to calculate your Sample Preparation Score.
+This page helps you calculate the Reagent Score for your analytical method. The score evaluates the environmental sustainability and safety of solvents used, with emphasis on selecting greener and less hazardous reagents.
+Please add information about each solvent used in your method.
+Note: If "Not available" is selected for Signal Word, consider setting GHS Classification to "Zero pictograms". Similarly, if "Zero pictograms" is chosen for GHS Classification, "Not available" would be the appropriate Signal Word.
+
+Instrumentation Score
+This page helps you calculate the Instrumentation Score for your analytical method. The score evaluates parameters such as energy consumption, instrument automation, operational lifespan, maintenance requirements, vapor emissions, and overall analytical efficiency.
+Please fill in the information below to calculate your Instrumentation Score.
+Examples of energy consumption:
+•	0 kWh per sample: Visual tests, physical measurements without instruments
+•	≤0.1 kWh per sample: Spectrophotometers, simple electrochemical methods
+•	≤1.5 kWh per sample: HPLC, GC, simple MS systems
+•	≥1.5 kWh per sample: HPLC-MS/MS, ICP-MS, other high-energy instruments
+•	Waste Score
+•	This page helps you calculate the Waste Score for your analytical method. The score assesses the environmental impact of waste generation, encouraging minimal waste production and proper waste management.
+•	Please fill in the information below to calculate your Waste Score.
+Biodegradable vs. Non-biodegradable Waste
+•	Biodegradable waste includes materials that can be broken down by natural processes, such as aqueous solutions, some organic solvents, and naturally derived compounds.
+•	Non-biodegradable waste includes materials that persist in the environment, such as halogenated solvents, heavy metals, and many synthetic compounds.
+Waste Treatment Options
+•	No treatment: Waste is disposed of without any treatment
+•	Treatment with reuse: Waste is treated and reused in the analytical process, reducing the overall environmental impact
+EI Scale Results
+Please complete all four scoring components before viewing results.
+Missing scores: Sample Preparation, Reagent, Instrumentation, Waste
+Steps to complete:
+1.	Navigate to each of the missing component pages using the sidebar
+2.	Fill in the required information
+3.	Calculate the component scores
+4.	Return to this page to view your results
+If score given then it should be like 
+EI Scale Results
+Total EI Score: 92
+Ideal green analytical method - Excellent eco-friendliness
+This score represents the overall environmental sustainability of your analytical method
+Component Scores
+Component Comparison
+🧪 Highest: Sample Preparation (100.0 points)	🔬 Lowest: Instrumentation (85.0 points)
+Difference: 15.0 points
+💡 Improvement Suggestion: Focus on improving the Instrumentation component to enhance your overall environmental impact score.
+🧪 Sample Preparation
+100.0
+Evaluates pre-synthesis steps, handling procedures, and extraction methods
+🧫 Reagent
+100.0
+Assesses the environmental impact of solvents and chemicals used
+🔬 Instrumentation
+85.0
+Measures energy consumption, automation, and maintenance factors
+♻️ Waste
+85.0
+Evaluates waste volume, biodegradability, and treatment processes
+Also give  some suggestion in the visualization or the results for the area for improvement

@@ -1,0 +1,44 @@
+{
+  "name": "EPPI",
+  "version": "1.0.0",
+  "description": "Dual Index Calculator - Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "electron": "^35.1.5",
+    "electron-squirrel-startup": "^1.0.1",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "jspdf": "^3.0.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^17.1.2"
+  },
+  "files": [
+    "main.js",
+    "preload.js",
+    "index.html",
+    "render.js",
+    "web-renderer.js",
+    "src/",
+    "/assets/",
+    "vendors/",
+    "styles.css",
+    "styles-dropdown.css",
+    "styles-radio.css",
+    "styles-reagent.css",
+    "animations.css",
+    "analytical-animations.css",
+    "tab-watermarks.css",
+    "mobile-responsive.css",
+    "manifest.json",
+    "service-worker.js"
+  ]
+}

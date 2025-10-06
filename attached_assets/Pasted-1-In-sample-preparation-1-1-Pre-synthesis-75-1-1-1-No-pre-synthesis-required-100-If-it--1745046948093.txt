@@ -1,0 +1,96 @@
+1.	In sample preparation 
+1.1.	Pre-synthesis
+1.1.1.	No pre-synthesis required – (If it is selected no pop out)
+1.1.2.	Pre-synthesis required
+If yes to  Pre-synthesis required selected the 
+then open sub sections like 
+1.1.3.	Yield
+1.1.3.1.	High yield >90%
+1.1.3.2.	Moderate yield 50-90%
+1.1.3.3.	Low yield <50%
+1.1.4.	Temperature
+1.1.4.1.	High temp. for more than 1 hr or cooling less than 0°C
+1.1.4.2.	Room temperature more than 1 hr or heating less than 1 hr or cooling less than 0°C
+1.1.4.3.	No temperature control required
+1.1.5.	Purification needed
+1.1.5.1.	Yes
+1.1.5.2.	No
+1.1.6.	High energy consumption equipment >1.5 kW per sample 
+1.1.6.1.	Yes
+1.1.6.2.	No
+1.1.7.	Use of non green solvent
+1.1.7.1.	Yes
+1.1.7.2.	No
+1.1.8.	Presence of occupational hazard
+1.1.8.1.	Yes
+1.1.8.2.	No
+1.2.	Sampling required
+1.2.1.	No sample preparation required ATR technique or direct analysis
+1.2.2.	Minimal sample preparation uv/vis fluorimetry and TLC (90)
+1.2.3.	Moderate sample preparation HPLC (Filtration or sonication) (80)
+1.2.4.	High sample preparations (Bio-analytical)
+1.3.	Type of sample and sample efficiency
+1.3.1.	Simple procedure (e.g., for pharmaceutical dosage forms)
+1.3.2.	Extensive preparation (e.g., for biological, food, or environmental samples) (50)
+Note: A score of 100 is given for simple procedures required for samples such as pharmaceutical dosage forms, while extensive preparation required for biological, food, and environmental matrices scores 75. These are examples of sample types, not limited to these specific samples.
+1.4.	Sample throughput
+1.4.1.	High sample throughput (≥60 samples/day)
+1.4.2.	Moderate sample throughput (30–59 samples/day) (50)
+1.4.3.	Low sample throughput (<30 samples/day) (25)
+1.5.	Extraction procedure
+1.5.1.	No extraction needed
+1.5.2.	Extraction needed (60)
+1.5.2.1.	Solvent Type
+1.5.2.1.1.	Complete green solvents (e.g., water, supercritical fluids, deep eutectic solvents, etc.)
+1.5.2.1.2.	Partial green solvents
+1.5.2.1.3.	Non-greener (conventional organic) solvents
+1.5.2.2.	Solvent Volume
+1.5.2.2.1.	Less than 1 mL (20)
+1.5.2.2.2.	1 to 10 mL
+1.5.2.2.3.	10 to 100 mL
+1.5.2.2.4.	More than 100 mL (-20)
+1.5.2.3.	Solid phase used
+1.5.2.3.1.	One time usable
+1.5.2.3.2.	Reusable
+1.5.2.3.3.	NA
+1.6.	Other conditions
+1.6.1.	Sampling Requires Derivatization/ Digestion or extra steps
+1.6.1.1.	Yes
+1.6.1.2.	No or Not Available
+1.6.2.	Automated sample preparation
+1.6.2.1.	Yes
+1.6.2.2.	No or Not Available
+1.6.3.	Type of Sample Preparation
+1.6.3.1.	In situ sample preparation
+1.6.3.2.	Offline
+
+The overall formula was sum of 1.1, 1.2, 1.3, 1.4, 1.5 
+add sum obtained with 1.6 but the overall score should be not more than 100
+2.	Instrument
+2.1.	Energy Consumption
+2.1.1.	Non-instrumental methods (0 kWh)
+2.1.2.	≤0.1 kWh per sample (95)
+2.1.3.	≤1.5 kWh per sample (85)
+2.1.4.	>1.5 kWh per sample
+2.2.	Maintenance of instrument
+2.2.1.	No Maintenance
+2.2.2.	Moderate ( 75)
+2.2.3.	High/ frequent (50)
+2.3.	Cost per sample
+2.3.1.	Low
+2.3.2.	Affordable
+2.3.3.	High (50)
+2.4.	Efficiency of Instrument
+2.4.1.	detected less than 1 picogram in 1 mg or mL
+2.4.2.	detected 1 picogram to 1 nanogram in 1 mg or mL (90)
+2.4.3.	detected 1 nanogram to 1 microgram in 1 mg or mL
+2.4.4.	detected 1 microgram to 1 milligram in 1 mg or mL (50)
+2.4.5.	detected more than 1 milligram in 1 mg or mL (30)
+2.5.	Other
+2.5.1.	Emission of Vapours (-20)
+2.5.2.	Manual or non-automated
+2.5.3.	The method is not multianalyte or Multiparameter
+3.	Reagents require no changes
+4.	Waste requires no changes
+5.	In the results component score and visualization also the sequence should also be the same as the sample preparation, instrumentation reagent and waste
+
