@@ -226,7 +226,7 @@ export function renderApp(container) {
     instrumentation: {
       energy: 'non',
       vaporEmission: false,
-      nonAutomated: false,
+      nonAutomated: 'automated',
       notMultianalyte: false,
       miniaturized: false
     },

@@ -88,7 +88,7 @@ add sum obtained with 1.6 but the overall score should be not more than 100
 2.4.5.	detected more than 1 milligram in 1 mg or mL (30)
 2.5.	Other
 2.5.1.	Emission of Vapours (-20)
-2.5.2.	Manual or non-automated
+2.5.2.	Manual / automation level (non | semi | automated)
 2.5.3.	The method is not multianalyte or Multiparameter
 3.	Reagents require no changes
 4.	Waste requires no changes

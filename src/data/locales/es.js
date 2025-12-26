@@ -36,7 +36,7 @@ export const es = {
   "Emission of Vapors": "Emisión de Vapores",
   "Yes": "Sí",
   "No": "No",
-  "Manual or non-automated": "Manual o no automatizado",
+  "Manual / automation level (non | semi | automated)": "Manual o no automatizado",
   "The method is not multianalyte or multiparameter": "El método no es multianalito o multiparamétrico",
   "Miniaturized instrument": "Instrumento miniaturizado",
   "The instrumentation score is based on the energy consumption (100-75 points) as the base score, with adjustments for vapor emissions (-20), manual methods, non-multianalyte methods, and miniaturized instruments. The overall score cannot exceed 100.": "La puntuación de instrumentación se basa en el consumo de energía (100-75 puntos) como puntuación base, con ajustes por emisiones de vapor (-20), métodos manuales, métodos no multianalito e instrumentos miniaturizados. La puntuación total no puede exceder 100.",

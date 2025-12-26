@@ -114,24 +114,25 @@ export function InstrumentationForm(state, onChange, scores) {
     (value) => onChange('vaporEmission', value === 'yes')
   );
   vaporGroup.classList.add('instrumentation-option');
-  emissionsSection.appendChild(vaporGroup);
+  emissionsSection.appendChild(vaporGrouFp);
   form.appendChild(emissionsSection);
   
   // Automation section
   const automationSection = document.createElement('div');
   automationSection.className = 'form-section automation-section';
   
-  // Manual or non-automated
-  const automatedGroup = createFormGroup(
-    translate('Manual or non-automated'),
-    'nonAutomated',
-    [
-      { value: 'yes', label: translate('Non automated'), score: '-5' },
-      { value: 'no', label: translate('Semi automated'), score: '-2' }
-    ],
-    state.nonAutomated ? 'yes' : 'no',
-    (value) => onChange('nonAutomated', value === 'yes')
-  );
+  // Manual / automation level
+const automatedGroup = createFormGroup(
+  translate('Manual / automation level (non | semi | automated)'),
+  'nonAutomated',
+  [
+    { value: 'automated', label: translate('Automated'),      score: '+2' },
+    { value: 'semi',      label: translate('Semi automated'), score: '-2' },
+    { value: 'non',       label: translate('Non automated'),  score: '-5' }
+  ],
+  state.nonAutomated ?? 'automated',          // default selection = automated
+  (value) => onChange('nonAutomated', value)  // store string directly
+);
   automatedGroup.classList.add('instrumentation-option');
   automationSection.appendChild(automatedGroup);
   form.appendChild(automationSection);

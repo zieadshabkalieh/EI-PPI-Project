@@ -211,11 +211,17 @@ export function calculateInstrumentationScore(instrumentation) {
     score -= 20;
   }
   
-  // Manual or non-automated
-if (typeof instrumentation.nonAutomated !== 'undefined') {
-  score -= instrumentation.nonAutomated ? 5 : 2;
+// Manual / automation level (non | semi | automated)
+const automation = instrumentation.nonAutomated ?? 'automated'; // default = automated
+
+if (automation === 'non') {
+  score -= 5;
+} else if (automation === 'semi') {
+  score -= 2;
+} else if (automation === 'automated') {
+  score += 2;
 }
-  
+ 
   // Multianalyte/multiparameter method adds 5 to total score, not to instrumentation score
   let multianalyteBonus = 0;
   if (instrumentation.multianalyte) {

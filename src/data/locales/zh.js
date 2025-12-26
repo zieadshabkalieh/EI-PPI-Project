@@ -36,7 +36,7 @@ export const zh = {
   "Emission of Vapors": "蒸汽排放",
   "Yes": "是",
   "No": "否",
-  "Manual or non-automated": "手动或非自动化",
+  "Manual / automation level (non | semi | automated)": "手动或非自动化",
   "The method is not multianalyte or multiparameter": "该方法不是多分析物或多参数",
   "Miniaturized instrument": "微型化仪器",
   "The instrumentation score is based on the energy consumption (100-75 points) as the base score, with adjustments for vapor emissions (-20), manual methods, non-multianalyte methods, and miniaturized instruments. The overall score cannot exceed 100.": "仪器得分基于能源消耗（100-75分）作为基础分数，并根据蒸汽排放（-20），手动方法（-5），非多分析物方法（-5）和微型化仪器（+10）进行调整。总分不能超过100。",

@@ -29,7 +29,7 @@ export const methodTemplates = [
       instrumentation: {
         energy: 'medium',
         vaporEmission: false,
-        nonAutomated: false,
+        nonAutomated: 'automated',
         notMultianalyte: false,
         maintenanceLifetime: 2
       },
@@ -88,7 +88,7 @@ export const methodTemplates = [
       instrumentation: {
         energy: 'high',
         vaporEmission: true,
-        nonAutomated: false,
+        nonAutomated: 'automated',
         notMultianalyte: false,
         maintenanceLifetime: 1
       },
@@ -141,7 +141,7 @@ export const methodTemplates = [
       instrumentation: {
         energy: 'low',
         vaporEmission: false,
-        nonAutomated: false,
+        nonAutomated: 'automated',
         notMultianalyte: false,
         maintenanceLifetime: 3
       },
@@ -194,7 +194,7 @@ export const methodTemplates = [
       instrumentation: {
         energy: 'medium',
         vaporEmission: false,
-        nonAutomated: false,
+        nonAutomated: 'automated',
         notMultianalyte: true,
         maintenanceLifetime: 3
       },
@@ -241,7 +241,7 @@ export const methodTemplates = [
       instrumentation: {
         energy: 'high',
         vaporEmission: true,
-        nonAutomated: false,
+        nonAutomated: 'automated',
         notMultianalyte: false,
         maintenanceLifetime: 1
       },
