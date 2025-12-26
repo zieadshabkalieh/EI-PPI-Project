@@ -199,7 +199,7 @@ export async function generatePDF(state){
 // ---------- robust logo loader (works in browser *and* Electron) ----------
 const logoURL    = isElectron && window.paths?.asset
   ? `file://${window.paths.asset('logo.png')}`
-  : '../../assets/logo.png';
+  : '/EI-PPI-Project/assets/logo.png';
 
 const logoImg = new Image();
 logoImg.src   = logoURL;

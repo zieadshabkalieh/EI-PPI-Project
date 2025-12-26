@@ -1,7 +1,7 @@
 import { translate } from '../utils/i18n.js';
 import { LanguageSelector } from './LanguageSelector.js';
 // adjust the path below to point at your actual logo file
-const logoPath = new URL('../../assets/logo.png', import.meta.url).href;
+const logoPath = new URL('/EI-PPI-Project/assets/logo.png', import.meta.url).href;
 
 
 export function Header() {

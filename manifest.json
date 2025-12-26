@@ -8,7 +8,7 @@
   "theme_color": "#4CAF50",
   "icons": [
     {
-      "src": "../../assets/logo.png",
+      "src": "/EI-PPI-Project/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -1,6 +1,6 @@
 // ─── src/components/Footer.js ───
 import { translate } from '../utils/i18n.js';
-const logoPath = new URL('../../assets/logo.png', import.meta.url).href;
+const logoPath = new URL('/EI-PPI-Project/assets/logo.png', import.meta.url).href;
 
 export function Footer() {
   const footer = document.createElement('footer');
@@ -41,7 +41,7 @@ export function Footer() {
 // credit.className = 'developer-credit';
 
 // const link = document.createElement('a');
-// link.href = 'https://zsktech.pro';
+// link.href = 'https://zsktech.info';
 // link.target = '_blank';
 // link.rel = 'noopener noreferrer';
 // link.style.display = 'inline-flex';

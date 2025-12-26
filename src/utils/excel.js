@@ -285,7 +285,7 @@ try {
   const isElectron = !!(window.process?.versions?.electron);
   const logoURL    = isElectron && window.paths?.asset
     ? `file://${window.paths.asset('logo.png')}`
-    : '../../assets/logo.png';
+    : '/EI-PPI-Project/assets/logo.png';
 
   const resp = await fetch(logoURL);
   const ab   = await resp.arrayBuffer();

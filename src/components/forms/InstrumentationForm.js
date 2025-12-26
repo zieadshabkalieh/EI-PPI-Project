@@ -114,7 +114,7 @@ export function InstrumentationForm(state, onChange, scores) {
     (value) => onChange('vaporEmission', value === 'yes')
   );
   vaporGroup.classList.add('instrumentation-option');
-  emissionsSection.appendChild(vaporGrouFp);
+  emissionsSection.appendChild(vaporGroup);
   form.appendChild(emissionsSection);
   
   // Automation section
