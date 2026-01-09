@@ -40,14 +40,14 @@ export function Footer() {
  const credit = document.createElement('p');
  credit.className = 'developer-credit';
 
- const link = document.createElement('a');
- link.href = 'https:zsktech.info';
- link.target = '_blank';
- link.rel = 'noopener noreferrer';
- link.style.display = 'inline-flex';
- link.style.alignItems = 'center';
- link.style.gap = '6px';               // space between icon and text
- link.style.fontSize = '1.1rem';
+const link = document.createElement('a');
+link.href = 'https://zsktech.info/';
+link.target = '_blank';
+link.rel = 'noopener noreferrer';
+link.style.display = 'inline-flex';
+link.style.alignItems = 'center';
+link.style.gap = '6px';
+link.style.fontSize = '1.1rem';
 
 // // Pick any small SVG/PNG you like and place it in /assets
  const devIcon = document.createElement('img');
@@ -69,7 +69,7 @@ export function Footer() {
 
   /* Assemble */
    [copyright, reference, credit].forEach(el => wrapper.appendChild(el));
-  [copyright].forEach(el => wrapper.appendChild(el));
+  //    [copyright].forEach(el => wrapper.appendChild(el));
   footer.appendChild(wrapper);
 
   return footer;
