@@ -44,6 +44,13 @@ const link = document.createElement('a');
 link.href = 'https://zsktech.info/';
 link.target = '_blank';
 link.rel = 'noopener noreferrer';
+
+link.addEventListener('click', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  window.open('https://zsktech.info/', '_blank', 'noopener');
+});
+
 link.style.display = 'inline-flex';
 link.style.alignItems = 'center';
 link.style.gap = '6px';
